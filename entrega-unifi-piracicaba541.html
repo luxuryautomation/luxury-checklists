@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e0e10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230e0e10'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='13' font-family='system-ui,sans-serif' font-weight='700' fill='%23c9a45c'%3ELA%3C/text%3E%3C/svg%3E">
+<title>Termo de Entrega de Equipamentos · Luxury Automation</title>
+<meta property="og:title" content="Termo de Entrega · Piracicaba 541">
+<meta property="og:description" content="Luxury Automation · Comprovante de entrega com assinatura">
+<style>
+:root{--bg:#0e0e10;--card:#18181b;--card2:#1f1f23;--line:#2a2a2f;--txt:#ececef;--mut:#8b8b93;--acc:#c9a45c;--ok:#25d366;--okd:#1aa34f;--warn:#e57373}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+body{overscroll-behavior-y:contain}
+.wrap{max-width:560px;margin:0 auto;padding:22px 16px 180px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.kicker{font-size:10.5px;letter-spacing:.18em;color:var(--mut);text-transform:uppercase}
+.brand{font-size:10.5px;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:6px}
+h1{font-size:21px;line-height:1.25;margin:4px 0 8px;font-weight:700}
+.obra{font-size:14.5px;line-height:1.4;color:var(--txt);margin:0 0 10px}
+.when{font-size:12px;color:var(--mut);margin:0 0 16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.bar{height:6px;background:var(--card2);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--ok));transition:width .3s}
+.prog{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut);margin:7px 0 4px}
+label.f{display:block;font-size:12px;color:var(--mut);margin:12px 0 6px}
+input[type=text],textarea{width:100%;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:12px;font-size:16px;font-family:inherit;outline:none}
+input:focus,textarea:focus{border-color:var(--acc)}
+textarea{min-height:88px;resize:vertical}
+.grp{font-size:11.5px;letter-spacing:.16em;font-weight:700;margin:22px 0 10px;color:var(--txt)}
+.item{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:12px 13px 14px}
+.item.on{border-color:#1f5f3a}
+.ih{display:flex;align-items:flex-start;gap:12px;cursor:pointer;user-select:none}
+.cb{flex:0 0 24px;height:24px;border-radius:7px;border:2px solid #55555d;display:flex;align-items:center;justify-content:center;transition:.15s;margin-top:1px}
+.item.on .cb{background:var(--ok);border-color:var(--ok)}
+.item.on .cb:after{content:"";width:6px;height:11px;border:solid #0b0b0b;border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.ih .tx{flex:1;min-width:0}
+.rec{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-bottom:3px}
+.item.on .rec{color:var(--ok)}
+.tn{font-size:14.5px;line-height:1.35}
+.q{color:var(--acc);font-weight:700;margin-right:4px}
+.sn{margin:10px 0 0 36px}
+.sn label{display:block;font-size:11.5px;color:var(--mut);margin:0 0 5px}
+.sn input{padding:9px 11px;font-size:16px}
+.decl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;font-size:13.5px;line-height:1.5;color:#cfcfd4;margin:8px 0 0}
+.pad-wrap{position:relative;margin-top:6px;scroll-margin-bottom:180px}
+#pad{display:block;width:100%;height:168px;background:var(--card);border:1px solid var(--line);border-radius:12px;touch-action:none;-ms-touch-action:none;cursor:crosshair;overscroll-behavior:none;user-select:none}
+.pad-hint{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:14px;pointer-events:none}
+.pad-hint.hide{opacity:0}
+.row-btns{display:flex;gap:8px;margin-top:8px}
+.ghost{flex:1;background:transparent;border:1px solid var(--line);color:var(--txt);border-radius:9px;padding:10px;font-size:13px;cursor:pointer}
+.clear{margin-top:18px;background:transparent;border:1px solid #4a2626;color:var(--warn);border-radius:10px;padding:11px 14px;font-size:13px;cursor:pointer;width:100%}
+.foot{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(14,14,16,0),var(--bg) 22%);padding:18px 16px calc(14px + env(safe-area-inset-bottom))}
+.foot .in{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.wa{width:100%;background:var(--ok);color:#06210f;border:0;border-radius:11px;padding:15px 14px;font-size:15px;font-weight:700;cursor:pointer}
+.wa:active{background:var(--okd)}
+.dl{width:100%;background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:11px;padding:13px 14px;font-size:14px;font-weight:600;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:168px;transform:translateX(-50%);background:#26262b;color:#fff;padding:9px 14px;border-radius:9px;font-size:13px;opacity:0;transition:.25s;pointer-events:none;max-width:86%;text-align:center;z-index:20}
+.toast.s{opacity:1}
+input.err,textarea.err,.pad-wrap.err #pad{border-color:#7a3030}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand mono">Luxury Automation</div>
+  <div class="kicker mono">Entrega ao cliente · Assinatura na tela</div>
+  <h1 id="title"></h1>
+  <p class="obra" id="obra"></p>
+  <div class="when mono" id="quando"></div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="prog mono"><span id="pt">0 de 0 recebidos</span><span id="pp">0%</span></div>
+
+  <div class="grp mono" id="local"></div>
+  <div id="itens"></div>
+
+  <label class="f" for="nome">Nome de quem recebe</label>
+  <input type="text" id="nome" autocomplete="name" placeholder="Nome completo do recebedor">
+
+  <label class="f" for="doc">CPF / RG <span style="color:var(--mut);font-weight:400">(opcional)</span></label>
+  <input type="text" id="doc" inputmode="text" autocomplete="off" placeholder="Documento do recebedor">
+
+  <label class="f" for="obs">Observações</label>
+  <textarea id="obs" placeholder="Avarias, pendências ou comentários (opcional)"></textarea>
+
+  <div class="grp mono">Declaração</div>
+  <div class="decl" id="decl"></div>
+
+  <div class="grp mono">Assinatura do recebedor</div>
+  <div class="pad-wrap">
+    <canvas id="pad" width="560" height="168" aria-label="Área de assinatura"></canvas>
+    <div class="pad-hint" id="padHint">Assine com o dedo nesta área</div>
+  </div>
+  <div class="row-btns">
+    <button type="button" class="ghost" id="clrPad">Limpar assinatura</button>
+  </div>
+
+  <button type="button" class="clear" id="clr">Limpar formulário</button>
+</div>
+
+<div class="foot"><div class="in">
+  <button type="button" class="wa" id="wa">Gerar comprovante e enviar no WhatsApp</button>
+  <button type="button" class="dl" id="dl">Baixar comprovante (imagem)</button>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   CONFIGURAÇÃO DA OBRA — para uma obra nova, troque só este bloco.
+   ===================================================================== */
+const CONFIG = {
+  id: "piracicaba541-entrega-unifi",
+  titulo: "Termo de Entrega de Equipamentos",
+  obra: "Residência Piracicaba 541 · Alphaville, Condomínio Tamboré 1",
+  local: "Depósito · Térreo",
+  declaracao: "Declaro ter recebido os equipamentos listados neste termo, nas quantidades indicadas, em perfeito estado de conservação.",
+  itens: [
+    { qtd: 1, nome: "UniFi Dream Machine (PoE) Special Edition" },
+    { qtd: 1, nome: "UniFi Switch 16 portas PoE" },
+    { qtd: 1, nome: "Cabo DAC SFP+ 10 Gbps (UniFi)" },
+  ],
+};
+/* ===================================================================== */
+
+const KEY = "la-entrega-" + CONFIG.id;
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const SYS = '-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif';
+const MONO = 'ui-monospace,SFMono-Regular,Menlo,Consolas,monospace';
+
+let st = {};
+try { st = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+st.chk = st.chk || {};
+st.sn = st.sn || {};
+if (st.nome === undefined) st.nome = "";
+if (st.doc === undefined) st.doc = "";
+if (st.obs === undefined) st.obs = "";
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify({ nome: st.nome, doc: st.doc, obs: st.obs, chk: st.chk, sn: st.sn })); } catch (e) {} };
+
+function partsSP(d) {
+  const fmt = new Intl.DateTimeFormat("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", second: "2-digit",
+    hour12: false
+  });
+  const o = {};
+  fmt.formatToParts(d || new Date()).forEach(p => { o[p.type] = p.value; });
+  return o;
+}
+function dataHoraSP(d) {
+  const p = partsSP(d);
+  return {
+    data: `${p.day}/${p.month}/${p.year}`,
+    hora: `${p.hour}:${p.minute}`,
+    display: `${p.day}/${p.month}/${p.year} · ${p.hour}:${p.minute}`,
+    file: `${p.year}${p.month}${p.day}-${p.hour}${p.minute}`,
+    full: `${p.day}/${p.month}/${p.year} às ${p.hour}:${p.minute}`
+  };
+}
+function tickClock() {
+  const d = dataHoraSP();
+  $("#quando").textContent = d.display + " · Horário de Brasília";
+}
+
+document.title = CONFIG.titulo + " · Luxury Automation";
+$("#title").textContent = CONFIG.titulo;
+$("#obra").textContent = CONFIG.obra;
+$("#local").textContent = CONFIG.local.toUpperCase();
+$("#decl").textContent = CONFIG.declaracao;
+tickClock();
+setInterval(tickClock, 30000);
+
+function renderItens() {
+  const n = CONFIG.itens.length;
+  const done = CONFIG.itens.filter((_, i) => st.chk[i]).length;
+  const p = n ? Math.round(done / n * 100) : 0;
+  $("#pt").textContent = `${done} de ${n} recebidos`;
+  $("#pp").textContent = p + "%";
+  $("#bar").style.width = p + "%";
+  $("#itens").innerHTML = CONFIG.itens.map((it, i) => `
+    <div class="item${st.chk[i] ? " on" : ""}" data-i="${i}">
+      <div class="ih" data-toggle="${i}">
+        <span class="cb"></span>
+        <div class="tx">
+          <div class="rec">${st.chk[i] ? "Recebido" : "Marcar como recebido"}</div>
+          <div class="tn"><span class="q">${it.qtd}x</span>${esc(it.nome)}</div>
+        </div>
+      </div>
+      <div class="sn">
+        <label for="sn${i}">Nº de série (opcional)</label>
+        <input type="text" id="sn${i}" data-sn="${i}" value="${esc(st.sn[i] || "")}" placeholder="S/N" autocomplete="off">
+      </div>
+    </div>`).join("");
+}
+renderItens();
+
+$("#itens").addEventListener("click", e => {
+  const t = e.target.closest("[data-toggle]");
+  if (!t) return;
+  const i = t.getAttribute("data-toggle");
+  st.chk[i] = !st.chk[i];
+  save(); renderItens();
+});
+$("#itens").addEventListener("input", e => {
+  const el = e.target.closest("[data-sn]");
+  if (!el) return;
+  st.sn[el.getAttribute("data-sn")] = el.value;
+  save();
+});
+
+["nome", "doc", "obs"].forEach(k => {
+  const el = $("#" + k);
+  el.value = st[k] || "";
+  el.addEventListener("input", () => { st[k] = el.value; save(); });
+});
+
+/* ---------- Assinatura (pointer events, DPR, traços em CSS px) ---------- */
+const pad = $("#pad");
+const pctx = pad.getContext("2d");
+const strokes = [];
+let curr = null, drawing = false, dpr = 1, cssW = 0, cssH = 0;
+
+function hasInk() {
+  return strokes.some(s => s.length > 1 || (s.length === 1));
+}
+function inkDistance() {
+  let d = 0;
+  for (const s of strokes) {
+    for (let i = 1; i < s.length; i++) {
+      const a = s[i - 1], b = s[i];
+      d += Math.hypot(b.x - a.x, b.y - a.y);
+    }
+  }
+  return d;
+}
+function hint() {
+  $("#padHint").classList.toggle("hide", hasInk());
+}
+function sizePad() {
+  const r = pad.getBoundingClientRect();
+  cssW = Math.max(1, Math.round(r.width));
+  cssH = Math.max(1, Math.round(r.height) || 168);
+  dpr = Math.max(1, window.devicePixelRatio || 1);
+  pad.width = Math.round(cssW * dpr);
+  pad.height = Math.round(cssH * dpr);
+  pad.style.width = cssW + "px";
+  pad.style.height = cssH + "px";
+  redrawPad();
+}
+function styleStroke(ctx) {
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.strokeStyle = "#ececef";
+  ctx.fillStyle = "#ececef";
+  ctx.lineWidth = 2.4;
+}
+function redrawPad() {
+  pctx.setTransform(1, 0, 0, 1, 0, 0);
+  pctx.clearRect(0, 0, pad.width, pad.height);
+  styleStroke(pctx);
+  for (const s of strokes) {
+    if (!s.length) continue;
+    if (s.length === 1) {
+      pctx.beginPath();
+      pctx.arc(s[0].x, s[0].y, 1.2, 0, Math.PI * 2);
+      pctx.fill();
+      continue;
+    }
+    pctx.beginPath();
+    pctx.moveTo(s[0].x, s[0].y);
+    for (let i = 1; i < s.length; i++) pctx.lineTo(s[i].x, s[i].y);
+    pctx.stroke();
+  }
+  hint();
+}
+function pt(e) {
+  const r = pad.getBoundingClientRect();
+  return { x: e.clientX - r.left, y: e.clientY - r.top };
+}
+pad.addEventListener("pointerdown", e => {
+  e.preventDefault();
+  try { pad.setPointerCapture(e.pointerId); } catch (err) {}
+  drawing = true;
+  curr = [pt(e)];
+  strokes.push(curr);
+  redrawPad();
+});
+pad.addEventListener("pointermove", e => {
+  if (!drawing || !curr) return;
+  e.preventDefault();
+  const p = pt(e);
+  const last = curr[curr.length - 1];
+  if (last && Math.hypot(p.x - last.x, p.y - last.y) < 0.4) return;
+  curr.push(p);
+  styleStroke(pctx);
+  pctx.beginPath();
+  pctx.moveTo(last.x, last.y);
+  pctx.lineTo(p.x, p.y);
+  pctx.stroke();
+  hint();
+});
+function endStroke() { drawing = false; curr = null; hint(); }
+pad.addEventListener("pointerup", endStroke);
+pad.addEventListener("pointercancel", endStroke);
+pad.addEventListener("lostpointercapture", endStroke);
+
+let resizeT;
+window.addEventListener("resize", () => { clearTimeout(resizeT); resizeT = setTimeout(sizePad, 80); });
+if (window.visualViewport) window.visualViewport.addEventListener("resize", () => { clearTimeout(resizeT); resizeT = setTimeout(sizePad, 80); });
+sizePad();
+
+$("#clrPad").onclick = () => {
+  strokes.length = 0;
+  curr = null;
+  drawing = false;
+  redrawPad();
+  pad.parentNode.classList.remove("err");
+};
+
+/* ---------- Comprovante (PNG desenhado no canvas, sem bibliotecas) ---------- */
+function wrapText(ctx, text, maxW) {
+  const raw = String(text || "").replace(/\s+/g, " ").trim();
+  if (!raw) return [""];
+  const words = raw.split(" ");
+  const lines = [];
+  let line = "";
+  for (const w of words) {
+    const pieces = [];
+    if (ctx.measureText(w).width <= maxW) pieces.push(w);
+    else {
+      let buf = "";
+      for (const ch of w) {
+        if (ctx.measureText(buf + ch).width > maxW && buf) { pieces.push(buf); buf = ch; }
+        else buf += ch;
+      }
+      if (buf) pieces.push(buf);
+    }
+    for (const piece of pieces) {
+      const test = line ? line + " " + piece : piece;
+      if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = piece; }
+      else line = test;
+    }
+  }
+  if (line) lines.push(line);
+  return lines.length ? lines : [""];
+}
+function rr(ctx, x, y, w, h, r) {
+  const rad = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+
+function renderReceiptCanvas(when) {
+  const W = 800, P = 44, inner = W - P * 2, scale = 2;
+  const nome = (st.nome || "").trim();
+  const doc = (st.doc || "").trim();
+  const obs = (st.obs || "").trim();
+  const stamp = when || dataHoraSP();
+
+  const m = document.createElement("canvas").getContext("2d");
+  m.textBaseline = "top";
+  const font = (ctx, size, weight, fam) => { ctx.font = `${weight || 400} ${size}px ${fam || SYS}`; };
+
+  const cmds = [];
+  let y = 40;
+  const add = (h, fn) => { cmds.push({ y, fn }); y += h; };
+
+  add(16, (ctx, y0) => {
+    font(ctx, 11, 600, MONO);
+    ctx.fillStyle = "#c9a45c";
+    ctx.letterSpacing = "0.18em";
+    ctx.fillText("LUXURY AUTOMATION", P, y0);
+    ctx.letterSpacing = "0px";
+  });
+  add(14, (ctx, y0) => {
+    ctx.strokeStyle = "#c9a45c";
+    ctx.globalAlpha = 0.55;
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(P, y0 + 4); ctx.lineTo(W - P, y0 + 4); ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+  add(34, (ctx, y0) => {
+    font(ctx, 26, 700, SYS);
+    ctx.fillStyle = "#ececef";
+    ctx.fillText("Termo de Entrega de Equipamentos", P, y0);
+  });
+
+  font(m, 12, 400, MONO);
+  add(16, (ctx, y0) => {
+    font(ctx, 11, 600, MONO);
+    ctx.fillStyle = "#8b8b93";
+    ctx.letterSpacing = "0.12em";
+    ctx.fillText("OBRA", P, y0);
+    ctx.letterSpacing = "0px";
+  });
+  font(m, 16, 600, SYS);
+  const obraLines = wrapText(m, CONFIG.obra, inner);
+  obraLines.forEach((ln, i) => add(i === obraLines.length - 1 ? 26 : 22, (ctx, y0) => {
+    font(ctx, 16, 600, SYS);
+    ctx.fillStyle = "#ececef";
+    ctx.fillText(ln, P, y0);
+  }));
+
+  add(52, (ctx, y0) => {
+    font(ctx, 11, 600, MONO);
+    ctx.fillStyle = "#8b8b93";
+    ctx.fillText("DATA E HORA", P, y0);
+    ctx.fillText("LOCAL", P + 280, y0);
+    font(ctx, 15, 600, SYS);
+    ctx.fillStyle = "#ececef";
+    ctx.fillText(stamp.display, P, y0 + 18);
+    ctx.fillText(CONFIG.local, P + 280, y0 + 18);
+    font(ctx, 11, 400, SYS);
+    ctx.fillStyle = "#8b8b93";
+    ctx.fillText("Horário de Brasília", P, y0 + 38);
+  });
+
+  add(18, (ctx, y0) => {
+    ctx.strokeStyle = "#2a2a2f";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(P, y0 + 6); ctx.lineTo(W - P, y0 + 6); ctx.stroke();
+  });
+
+  font(m, 14.5, 400, SYS);
+  const declLines = wrapText(m, CONFIG.declaracao, inner);
+  declLines.forEach((ln, i) => add(i === declLines.length - 1 ? 24 : 21, (ctx, y0) => {
+    font(ctx, 14.5, 400, SYS);
+    ctx.fillStyle = "#cfcfd4";
+    ctx.fillText(ln, P, y0);
+  }));
+
+  add(28, (ctx, y0) => {
+    font(ctx, 11, 700, MONO);
+    ctx.fillStyle = "#ececef";
+    ctx.letterSpacing = "0.14em";
+    ctx.fillText("EQUIPAMENTOS RECEBIDOS", P, y0 + 6);
+    ctx.letterSpacing = "0px";
+  });
+
+  // Medir bloco de itens
+  const itemBlocks = CONFIG.itens.map((it, i) => {
+    font(m, 15, 600, SYS);
+    const name = wrapText(m, `${it.qtd}×  ${it.nome}`, inner - 52);
+    const sn = (st.sn[i] || "").trim();
+    font(m, 12.5, 400, MONO);
+    const snLines = sn ? wrapText(m, "S/N  " + sn, inner - 52) : [];
+    const h = 16 + name.length * 21 + snLines.length * 17 + 14;
+    return { it, i, name, sn, snLines, h };
+  });
+  const boxH = itemBlocks.reduce((s, b) => s + b.h, 0);
+  add(boxH + 8, (ctx, y0) => {
+    rr(ctx, P, y0, inner, boxH, 12);
+    ctx.fillStyle = "#18181b";
+    ctx.fill();
+    ctx.strokeStyle = "#2a2a2f";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    let yy = y0;
+    itemBlocks.forEach((b, idx) => {
+      if (idx) {
+        ctx.strokeStyle = "#2a2a2f";
+        ctx.beginPath(); ctx.moveTo(P + 14, yy); ctx.lineTo(W - P - 14, yy); ctx.stroke();
+      }
+      const mid = yy + 18;
+      const on = !!st.chk[b.i];
+      ctx.beginPath();
+      ctx.arc(P + 24, mid + 6, 8, 0, Math.PI * 2);
+      if (on) {
+        ctx.fillStyle = "#25d366";
+        ctx.fill();
+        ctx.strokeStyle = "#0b0b0b";
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.moveTo(P + 20, mid + 6.5);
+        ctx.lineTo(P + 23, mid + 10);
+        ctx.lineTo(P + 29, mid + 2.5);
+        ctx.stroke();
+      } else {
+        ctx.strokeStyle = "#55555d";
+        ctx.lineWidth = 1.6;
+        ctx.stroke();
+      }
+      font(ctx, 15, 600, SYS);
+      ctx.fillStyle = on ? "#ececef" : "#8b8b93";
+      b.name.forEach((ln, li) => ctx.fillText(ln, P + 42, yy + 12 + li * 21));
+      if (b.snLines.length) {
+        font(ctx, 12.5, 400, MONO);
+        ctx.fillStyle = "#8b8b93";
+        const sy = yy + 12 + b.name.length * 21 + 2;
+        b.snLines.forEach((ln, li) => ctx.fillText(ln, P + 42, sy + li * 17));
+      }
+      if (!on) {
+        font(ctx, 10.5, 700, MONO);
+        ctx.fillStyle = "#e57373";
+        const tag = "NÃO RECEBIDO";
+        const tw = ctx.measureText(tag).width;
+        ctx.fillText(tag, W - P - 16 - tw, yy + 14);
+      }
+      yy += b.h;
+    });
+  });
+
+  add(26, (ctx, y0) => {
+    font(ctx, 11, 700, MONO);
+    ctx.fillStyle = "#ececef";
+    ctx.letterSpacing = "0.14em";
+    ctx.fillText("RECEBEDOR", P, y0 + 8);
+    ctx.letterSpacing = "0px";
+  });
+  add(22, (ctx, y0) => {
+    font(ctx, 12, 400, SYS);
+    ctx.fillStyle = "#8b8b93";
+    ctx.fillText("Nome", P, y0);
+    font(ctx, 16, 600, SYS);
+    ctx.fillStyle = "#ececef";
+    ctx.fillText(nome || "—", P + 86, y0 - 2);
+  });
+  if (doc) add(22, (ctx, y0) => {
+    font(ctx, 12, 400, SYS);
+    ctx.fillStyle = "#8b8b93";
+    ctx.fillText("CPF / RG", P, y0);
+    font(ctx, 16, 600, SYS);
+    ctx.fillStyle = "#ececef";
+    ctx.fillText(doc, P + 86, y0 - 2);
+  });
+
+  font(m, 14, 400, SYS);
+  const obsLines = wrapText(m, obs || "Nenhuma.", inner);
+  add(24, (ctx, y0) => {
+    font(ctx, 11, 700, MONO);
+    ctx.fillStyle = "#ececef";
+    ctx.letterSpacing = "0.14em";
+    ctx.fillText("OBSERVAÇÕES", P, y0 + 6);
+    ctx.letterSpacing = "0px";
+  });
+  obsLines.forEach((ln, i) => add(i === obsLines.length - 1 ? 20 : 19, (ctx, y0) => {
+    font(ctx, 14, 400, SYS);
+    ctx.fillStyle = obs ? "#cfcfd4" : "#8b8b93";
+    ctx.fillText(ln, P, y0);
+  }));
+
+  const sigH = 150;
+  add(24, (ctx, y0) => {
+    font(ctx, 11, 700, MONO);
+    ctx.fillStyle = "#ececef";
+    ctx.letterSpacing = "0.14em";
+    ctx.fillText("ASSINATURA DO RECEBEDOR", P, y0 + 6);
+    ctx.letterSpacing = "0px";
+  });
+  add(sigH + 8, (ctx, y0) => {
+    rr(ctx, P, y0, inner, sigH, 12);
+    ctx.fillStyle = "#18181b";
+    ctx.fill();
+    ctx.strokeStyle = "#2a2a2f";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    if (hasInk() && pad.width && pad.height) {
+      const padCssW = cssW || pad.width / dpr;
+      const padCssH = cssH || pad.height / dpr;
+      const boxW = inner - 24, boxH2 = sigH - 20;
+      const fit = Math.min(boxW / padCssW, boxH2 / padCssH);
+      const dw = padCssW * fit, dh = padCssH * fit;
+      const dx = P + (inner - dw) / 2, dy = y0 + (sigH - dh) / 2;
+      ctx.drawImage(pad, 0, 0, pad.width, pad.height, dx, dy, dw, dh);
+    }
+  });
+  add(nome ? 22 : 8, (ctx, y0) => {
+    if (!nome) return;
+    font(ctx, 13, 400, SYS);
+    ctx.fillStyle = "#8b8b93";
+    ctx.fillText(nome, P, y0);
+  });
+
+  add(16, (ctx, y0) => {
+    ctx.strokeStyle = "#2a2a2f";
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(P, y0 + 6); ctx.lineTo(W - P, y0 + 6); ctx.stroke();
+  });
+  add(28, (ctx, y0) => {
+    font(ctx, 11, 400, SYS);
+    ctx.fillStyle = "#8b8b93";
+    const foot = `Luxury Automation · Comprovante gerado eletronicamente em ${stamp.full}`;
+    const lines = wrapText(ctx, foot, inner);
+    lines.forEach((ln, i) => ctx.fillText(ln, P, y0 + i * 15));
+  });
+
+  const H = y + 28;
+  const canvas = document.createElement("canvas");
+  canvas.width = W * scale;
+  canvas.height = H * scale;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(scale, scale);
+  ctx.textBaseline = "top";
+  ctx.fillStyle = "#0e0e10";
+  ctx.fillRect(0, 0, W, H);
+  cmds.forEach(c => c.fn(ctx, c.y));
+  return canvas;
+}
+
+function canvasToBlob(canvas) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(b => b ? resolve(b) : reject(new Error("Falha ao gerar a imagem")), "image/png");
+  });
+}
+function downloadBlob(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => { a.remove(); URL.revokeObjectURL(url); }, 2500);
+}
+function fileName(stamp) {
+  return `termo-entrega-${CONFIG.id}-${stamp.file}.png`;
+}
+
+function report(stamp) {
+  const s = stamp || dataHoraSP();
+  const nome = (st.nome || "").trim() || "—";
+  const doc = (st.doc || "").trim();
+  let t = `🏠 *LUXURY AUTOMATION*\n*${CONFIG.titulo}*\n\n`;
+  t += `📍 *Obra:* ${CONFIG.obra}\n`;
+  t += `📦 *Local:* ${CONFIG.local}\n`;
+  t += `📅 *Data/hora:* ${s.display} (Horário de Brasília)\n`;
+  t += `👤 *Recebedor:* ${nome}\n`;
+  if (doc) t += `🪪 *CPF/RG:* ${doc}\n`;
+  t += `\n📦 *Equipamentos*\n`;
+  CONFIG.itens.forEach((it, i) => {
+    const on = !!st.chk[i];
+    const sn = (st.sn[i] || "").trim();
+    t += `${on ? "✅" : "⬜"} ${it.qtd}x ${it.nome}\n`;
+    if (sn) t += `   _S/N: ${sn}_\n`;
+  });
+  t += `\n📝 *Observações:*\n${(st.obs || "").trim() || "_Nenhuma._"}\n`;
+  t += `\n_O comprovante assinado segue em anexo (imagem)._`;
+  return t;
+}
+
+const toast = m => {
+  const el = $("#toast");
+  el.textContent = m;
+  el.classList.add("s");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => el.classList.remove("s"), 2400);
+};
+
+function clearErr() {
+  $$(".err").forEach(n => n.classList.remove("err"));
+}
+function markErr(el) {
+  if (!el) return;
+  const box = el.id === "pad" ? el.parentNode : el;
+  box.classList.add("err");
+}
+
+function validate(opts) {
+  clearErr();
+  const nome = (st.nome || $("#nome").value || "").trim();
+  st.nome = nome;
+  const allowPartial = !!(opts && opts.allowPartial);
+  if (!nome) {
+    markErr($("#nome"));
+    $("#nome").focus();
+    toast("Informe o nome de quem recebe");
+    return null;
+  }
+  if (!hasInk() || inkDistance() < 12) {
+    markErr($("#pad"));
+    toast("É necessário assinar o termo");
+    pad.scrollIntoView({ behavior: "smooth", block: "center" });
+    return null;
+  }
+  const missing = CONFIG.itens.filter((_, i) => !st.chk[i]);
+  if (missing.length && !allowPartial) {
+    const ok = confirm("Nem todos os itens foram marcados como recebidos. Deseja gerar o comprovante mesmo assim?");
+    if (!ok) return null;
+  }
+  return { stamp: dataHoraSP() };
+}
+
+async function gerar(share) {
+  const v = validate({});
+  if (!v) return null;
+  const canvas = renderReceiptCanvas(v.stamp);
+  const blob = await canvasToBlob(canvas);
+  const name = fileName(v.stamp);
+  const text = report(v.stamp);
+  return { canvas, blob, name, text, stamp: v.stamp };
+}
+
+function openWhatsApp(text) {
+  const url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text);
+  const w = window.open(url, "_blank");
+  if (!w) {
+    try { window.top.location.href = url; }
+    catch (e) { window.location.href = url; }
+  }
+}
+
+$("#wa").onclick = async () => {
+  try {
+    const out = await gerar(true);
+    if (!out) return;
+    const file = new File([out.blob], out.name, { type: "image/png" });
+    const payload = { files: [file], text: out.text, title: "Termo de Entrega · Luxury Automation" };
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try {
+        await navigator.share(payload);
+        toast("Comprovante pronto ✅");
+        return;
+      } catch (e) {
+        if (e && e.name === "AbortError") return;
+      }
+    }
+    downloadBlob(out.blob, out.name);
+    openWhatsApp(out.text);
+  } catch (e) {
+    toast("Não foi possível gerar o comprovante");
+    console.error(e);
+  }
+};
+
+$("#dl").onclick = async () => {
+  try {
+    const out = await gerar(false);
+    if (!out) return;
+    downloadBlob(out.blob, out.name);
+    toast("Comprovante baixado ✅");
+  } catch (e) {
+    toast("Não foi possível gerar o comprovante");
+    console.error(e);
+  }
+};
+
+$("#clr").onclick = () => {
+  if (!confirm("Limpar marcações, dados do recebedor, observações e assinatura?")) return;
+  st = { chk: {}, sn: {}, nome: "", doc: "", obs: "" };
+  save();
+  ["nome", "doc", "obs"].forEach(k => $("#" + k).value = "");
+  strokes.length = 0;
+  curr = null;
+  drawing = false;
+  redrawPad();
+  clearErr();
+  renderItens();
+  toast("Formulário limpo");
+};
+
+// Exposto só para verificação automatizada do comprovante
+window.__LA_ENTREGA = {
+  renderReceiptCanvas,
+  hasInk,
+  validate,
+  report,
+  dataHoraSP,
+  getState: () => st,
+};
+</script>
+</body>
+</html>
