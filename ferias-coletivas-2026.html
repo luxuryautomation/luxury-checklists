@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#151518">
 <title>Comunicado · Obra Piracicaba 541 · Luxury Automation</title>
-<meta name="description" content="Comunicado da obra Piracicaba 541: férias coletivas da Luxury Automation. Escolha entre 2 ou 9 de dezembro de 2026 e solicite a reserva. Retorno em 4 de janeiro de 2027.">
+<meta name="description" content="Comunicado da obra Piracicaba 541: férias coletivas da Luxury Automation. Escolha entre 7 ou 8 de dezembro de 2026 e solicite a reserva. Retorno em 7 de janeiro de 2027.">
 <meta property="og:title" content="Comunicado · Obra Piracicaba 541 · Luxury Automation">
-<meta property="og:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (2/12 ou 9/12) e solicite a reserva pelo WhatsApp. Retorno em 4 de janeiro de 2027.">
+<meta property="og:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (7/12 ou 8/12) e solicite a reserva pelo WhatsApp. Retorno em 7 de janeiro de 2027.">
 <meta property="og:image" content="https://luxuryautomation.github.io/luxury-checklists/assets/luxury-logo.png">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="630">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Luxury Automation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Comunicado · Obra Piracicaba 541 · Luxury Automation">
-<meta name="twitter:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (2/12 ou 9/12) e solicite a reserva pelo WhatsApp. Retorno em 4 de janeiro de 2027.">
+<meta name="twitter:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (7/12 ou 8/12) e solicite a reserva pelo WhatsApp. Retorno em 7 de janeiro de 2027.">
 <meta name="twitter:image" content="https://luxuryautomation.github.io/luxury-checklists/assets/luxury-logo.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23151518'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' font-family='system-ui,sans-serif' font-weight='300' fill='%23f2f2f4' letter-spacing='-0.5'%3ELA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -332,8 +332,8 @@ input.err,textarea.err{border-color:#7a3030}
   <label class="f" for="nome">Nome</label>
   <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo" required>
 
-  <label class="f" for="empresa">Empresa / função <span>(opcional)</span></label>
-  <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Arquiteto / Engenheiro">
+  <label class="f" for="empresa">Empresa <span>(opcional)</span></label>
+  <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa">
 
   <label class="f" for="obs">Observação <span>(opcional)</span></label>
   <textarea id="obs" name="obs" placeholder="Prioridades da visita ou comentários"></textarea>
@@ -354,8 +354,8 @@ input.err,textarea.err{border-color:#7a3030}
    CONFIGURAÇÃO — datas disponíveis, retorno, WhatsApp e e-mail.
    ===================================================================== */
 const CONFIG = {
-  datasDisponiveis: ["2026-12-02", "2026-12-09"],
-  dataRetorno: "segunda-feira, 4 de janeiro de 2027",
+  datasDisponiveis: ["2026-12-07", "2026-12-08"],
+  dataRetorno: "quinta-feira, 7 de janeiro de 2027",
   whatsapp: "5511994343506",
   email: "contato@luxuryautomation.com.br",
   obra: "Piracicaba 541",
@@ -391,11 +391,11 @@ let selecionada = "";
 
 const dataRet = (CONFIG.dataRetorno || "").trim();
 $("#tlDezembro").textContent = disponiveis.map(formatShort).join(" ou ") || "Mais uma data disponível";
-$("#tlRetorno").textContent = dataRet || "1ª semana de janeiro";
+$("#tlRetorno").textContent = dataRet || "Janeiro de 2027";
 if (dataRet) {
   $("#pRetorno").innerHTML = "Retomamos as atividades normalmente a partir de <span class=\"date\">" + esc(dataRet) + "</span>. Logo no início do ano, enviaremos a programação das próximas etapas.";
 } else {
-  $("#pRetorno").textContent = "Retomamos as atividades normalmente a partir da primeira semana de janeiro de 2027. Logo no início do ano, enviaremos a programação das próximas etapas.";
+  $("#pRetorno").textContent = "Retomamos as atividades normalmente a partir de janeiro de 2027. Logo no início do ano, enviaremos a programação das próximas etapas.";
 }
 
 const email = (CONFIG.email || "").trim() || "contato@luxuryautomation.com.br";
@@ -436,13 +436,15 @@ for (let i = 0; i < 42; i++) {
   if (i + 1 >= weeksNeeded * 7) break;
 }
 
-const weekLabel = (iso, i) => (i === 0 ? "1ª semana" : i === 1 ? "2ª semana" : `${i + 1}ª semana`);
+function weekdayLabel(iso) {
+  const nome = new Intl.DateTimeFormat("pt-BR", { weekday: "long" }).format(parseISO(iso));
+  const curto = nome.split("-")[0];
+  return curto.charAt(0).toUpperCase() + curto.slice(1);
+}
 const choices = $("#choices");
-choices.innerHTML = disponiveis.map((iso, i) => {
-  const dt = parseISO(iso);
-  const dia = dt.toLocaleDateString("pt-BR", { weekday: "short", day: "numeric", month: "numeric" });
+choices.innerHTML = disponiveis.map((iso) => {
   return `<button type="button" class="choice" data-iso="${iso}" aria-pressed="false">
-    <p class="wk">${weekLabel(iso, i)}</p>
+    <p class="wk">${esc(weekdayLabel(iso))}</p>
     <p class="dt">${esc(formatLong(iso).replace(/ de 20\d{2}$/, ""))}</p>
   </button>`;
 }).join("");
@@ -495,7 +497,7 @@ function buildReserva() {
     "Data escolhida: " + formatLong(selecionada),
     "Nome: " + nome,
   ];
-  if (empresa) lines.push("Empresa / função: " + empresa);
+  if (empresa) lines.push("Empresa: " + empresa);
   if (obs) lines.push("Observação: " + obs);
   const text = lines.join("\n");
   const url = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(text);
