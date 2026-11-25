@@ -206,27 +206,10 @@ h1{
   min-height:1.45em;
 }
 .picked.on{color:#fff}
-label.f{display:block;font-size:12px;color:var(--mut);margin:12px 0 6px}
-label.f span{font-weight:400;color:#6e6e76}
-input[type=text],textarea{
-  width:100%;
-  background:var(--card);
-  border:1px solid var(--line);
-  color:var(--txt);
-  border-radius:10px;
-  padding:12px;
-  font-size:16px;
-  font-family:inherit;
-  font-weight:300;
-  outline:none;
-}
-input:focus,textarea:focus{border-color:#fff}
-textarea{min-height:84px;resize:vertical}
-input.err,textarea.err{border-color:#7a3030}
 .wa{
   display:block;
   width:100%;
-  margin-top:18px;
+  margin-top:8px;
   background:#fff;
   color:#151518;
   border:0;
@@ -329,16 +312,7 @@ input.err,textarea.err{border-color:#7a3030}
   <div class="choices" id="choices"></div>
   <p class="picked" id="picked">Toque em uma das datas destacadas para escolher.</p>
 
-  <label class="f" for="nome">Nome</label>
-  <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo" required>
-
-  <label class="f" for="empresa">Empresa <span>(opcional)</span></label>
-  <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Nome da empresa">
-
-  <label class="f" for="obs">Observação <span>(opcional)</span></label>
-  <textarea id="obs" name="obs" placeholder="Prioridades da visita ou comentários"></textarea>
-
-  <button type="button" class="wa" id="btnReserva" disabled>Solicitar reserva pelo WhatsApp</button>
+  <button type="button" class="wa" id="btnReserva" disabled>Enviar pelo WhatsApp</button>
 
   <p class="wish">Feliz Natal e um próspero Ano Novo.</p>
 
@@ -473,35 +447,16 @@ function escolher(iso) {
 }
 
 function syncBotao() {
-  const nome = ($("#nome").value || "").trim();
-  const ok = !!(selecionada && nome && (CONFIG.whatsapp || "").replace(/\D/g, ""));
-  $("#btnReserva").disabled = !ok;
-  if (nome) $("#nome").classList.remove("err");
+  const waNum = (CONFIG.whatsapp || "").replace(/\D/g, "");
+  $("#btnReserva").disabled = !(selecionada && waNum);
 }
 
-["input", "change"].forEach(ev => {
-  $("#nome").addEventListener(ev, syncBotao);
-  $("#empresa").addEventListener(ev, syncBotao);
-  $("#obs").addEventListener(ev, syncBotao);
-});
-
 function buildReserva() {
-  const nome = ($("#nome").value || "").trim();
-  const empresa = ($("#empresa").value || "").trim();
-  const obs = ($("#obs").value || "").trim();
   const waNum = (CONFIG.whatsapp || "").replace(/\D/g, "");
-  if (!selecionada || !nome || !waNum) return null;
-  const lines = [
-    `*Solicitação de reserva de data — Obra ${CONFIG.obra}*`,
-    "",
-    "Data escolhida: " + formatLong(selecionada),
-    "Nome: " + nome,
-  ];
-  if (empresa) lines.push("Empresa: " + empresa);
-  if (obs) lines.push("Observação: " + obs);
-  const text = lines.join("\n");
+  if (!selecionada || !waNum) return null;
+  const text = `*Solicitação de reserva de data — Obra ${CONFIG.obra}*\n\nData escolhida: ` + formatLong(selecionada);
   const url = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(text);
-  return { url, text, selecionada, nome, empresa, obs };
+  return { url, text, selecionada };
 }
 
 function openWA(url) {
@@ -514,10 +469,7 @@ function openWA(url) {
 
 $("#btnReserva").addEventListener("click", () => {
   const r = buildReserva();
-  if (!r) {
-    if (!($("#nome").value || "").trim()) $("#nome").classList.add("err");
-    return;
-  }
+  if (!r) return;
   openWA(r.url);
 });
 
