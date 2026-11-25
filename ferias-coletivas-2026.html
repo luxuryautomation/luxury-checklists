@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#151518">
 <title>Comunicado · Obra Piracicaba 541 · Luxury Automation</title>
-<meta name="description" content="Comunicado da obra Piracicaba 541: férias coletivas da Luxury Automation, última data em 9 de dezembro de 2026 e retorno em 4 de janeiro de 2027.">
+<meta name="description" content="Comunicado da obra Piracicaba 541: férias coletivas da Luxury Automation. Escolha entre 2 ou 9 de dezembro de 2026 e solicite a reserva. Retorno em 4 de janeiro de 2027.">
 <meta property="og:title" content="Comunicado · Obra Piracicaba 541 · Luxury Automation">
-<meta property="og:description" content="Férias coletivas da obra Piracicaba 541: última data em 9 de dezembro de 2026 e retorno em 4 de janeiro de 2027.">
+<meta property="og:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (2/12 ou 9/12) e solicite a reserva pelo WhatsApp. Retorno em 4 de janeiro de 2027.">
 <meta property="og:image" content="https://luxuryautomation.github.io/luxury-checklists/assets/luxury-logo.png">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="630">
@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="Luxury Automation">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Comunicado · Obra Piracicaba 541 · Luxury Automation">
-<meta name="twitter:description" content="Férias coletivas da obra Piracicaba 541: última data em 9 de dezembro de 2026 e retorno em 4 de janeiro de 2027.">
+<meta name="twitter:description" content="Férias coletivas da obra Piracicaba 541: escolha a data em dezembro (2/12 ou 9/12) e solicite a reserva pelo WhatsApp. Retorno em 4 de janeiro de 2027.">
 <meta name="twitter:image" content="https://luxuryautomation.github.io/luxury-checklists/assets/luxury-logo.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23151518'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-size='11' font-family='system-ui,sans-serif' font-weight='300' fill='%23f2f2f4' letter-spacing='-0.5'%3ELA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,6 +100,152 @@ h1{
   margin:0;
   line-height:1.35;
 }
+.sec{
+  font-family:"Exo 2",sans-serif;
+  font-weight:400;
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--txt);
+  margin:26px 0 12px;
+  text-align:center;
+}
+.cal{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px 12px 14px;
+  margin:0 0 10px;
+}
+.cal-title{
+  font-family:"Exo 2",sans-serif;
+  font-weight:400;
+  font-size:12px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  text-align:center;
+  margin:0 0 14px;
+  color:#fff;
+}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-hd{
+  font-family:"Exo 2",sans-serif;
+  font-size:9.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--mut);
+  text-align:center;
+  padding:0 0 8px;
+  font-weight:400;
+}
+.day{
+  aspect-ratio:1;
+  border:0;
+  background:transparent;
+  color:#55555c;
+  border-radius:9px;
+  font-family:"Exo 2",sans-serif;
+  font-weight:300;
+  font-size:14px;
+  cursor:default;
+  padding:0;
+  line-height:1;
+}
+.day.out{color:#3a3a40}
+.day.avail{
+  color:#fff;
+  background:#2a2a30;
+  border:1px solid #6a6a72;
+  cursor:pointer;
+  font-weight:500;
+}
+.day.avail:focus{outline:2px solid #fff;outline-offset:1px}
+.day.on{
+  background:#fff;
+  color:#151518;
+  border-color:#fff;
+  font-weight:500;
+}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 8px}
+.choice{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:13px 12px 12px;
+  cursor:pointer;
+  text-align:center;
+  color:var(--txt);
+  font-family:inherit;
+}
+.choice:focus{outline:2px solid #fff;outline-offset:1px}
+.choice.on{border-color:#fff;background:#242428}
+.choice .wk{
+  font-family:"Exo 2",sans-serif;
+  font-size:9.5px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--mut);
+  margin:0 0 5px;
+}
+.choice.on .wk{color:var(--soft)}
+.choice .dt{
+  font-family:"Exo 2",sans-serif;
+  font-weight:300;
+  font-size:14.5px;
+  letter-spacing:.02em;
+  margin:0;
+  color:#fff;
+  line-height:1.3;
+}
+.picked{
+  font-size:13px;
+  line-height:1.45;
+  color:var(--mut);
+  text-align:center;
+  margin:4px 0 18px;
+  min-height:1.45em;
+}
+.picked.on{color:#fff}
+label.f{display:block;font-size:12px;color:var(--mut);margin:12px 0 6px}
+label.f span{font-weight:400;color:#6e6e76}
+input[type=text],textarea{
+  width:100%;
+  background:var(--card);
+  border:1px solid var(--line);
+  color:var(--txt);
+  border-radius:10px;
+  padding:12px;
+  font-size:16px;
+  font-family:inherit;
+  font-weight:300;
+  outline:none;
+}
+input:focus,textarea:focus{border-color:#fff}
+textarea{min-height:84px;resize:vertical}
+input.err,textarea.err{border-color:#7a3030}
+.wa{
+  display:block;
+  width:100%;
+  margin-top:18px;
+  background:#fff;
+  color:#151518;
+  border:0;
+  border-radius:11px;
+  padding:15px 14px;
+  font-family:"Exo 2",sans-serif;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+}
+.wa:disabled{
+  opacity:.32;
+  cursor:not-allowed;
+}
+.wa:not(:disabled):active{opacity:.88}
 .wish{
   font-family:"Exo 2",sans-serif;
   font-weight:300;
@@ -107,7 +253,7 @@ h1{
   letter-spacing:.06em;
   text-align:center;
   line-height:1.45;
-  margin:28px 0 32px;
+  margin:32px 0 32px;
   color:#fff;
 }
 .sign{text-align:center;border-top:1px solid var(--line);padding-top:24px}
@@ -138,24 +284,6 @@ h1{
   padding-bottom:3px;
 }
 .mail:hover{color:#fff;border-color:#fff}
-.wa{
-  display:none;
-  width:100%;
-  margin-top:18px;
-  background:#fff;
-  color:#151518;
-  border:0;
-  border-radius:11px;
-  padding:14px 14px;
-  font-family:"Exo 2",sans-serif;
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  text-decoration:none;
-  text-align:center;
-}
-.wa:active{opacity:.88}
 @media (min-width:420px){
   h1{font-size:32px}
 }
@@ -170,21 +298,21 @@ h1{
 
   <p class="body">A Luxury Automation agradece a confiança e a parceria ao longo deste ano na obra Piracicaba 541.</p>
 
-  <p class="body" id="pDezembro"></p>
+  <p class="body">Por causa do calendário de obras e da pausa das nossas atividades para as férias coletivas, teremos apenas mais uma data disponível em dezembro — escolha abaixo a opção de sua preferência. Assim podemos organizar juntos o que for prioridade para essa visita.</p>
 
   <div class="timeline" aria-label="Cronograma de fim de ano">
     <div class="tl-item">
       <span class="dot" aria-hidden="true"></span>
       <div>
-        <p class="tl-k">Última data em dezembro</p>
-        <p class="tl-v" id="tlDezembro">Mais uma data disponível</p>
+        <p class="tl-k">Datas disponíveis em dezembro</p>
+        <p class="tl-v" id="tlDezembro"></p>
       </div>
     </div>
     <div class="tl-item">
       <span class="dot" aria-hidden="true"></span>
       <div>
         <p class="tl-k">Retorno</p>
-        <p class="tl-v" id="tlRetorno">1ª semana de janeiro</p>
+        <p class="tl-v" id="tlRetorno"></p>
       </div>
     </div>
   </div>
@@ -193,64 +321,205 @@ h1{
 
   <p class="body">Se houver algum ponto que precise ser resolvido ainda este ano, pedimos que nos avisem o quanto antes para encaixarmos nessa data.</p>
 
+  <h2 class="sec">Escolha a data</h2>
+  <div class="cal" aria-label="Calendário de dezembro de 2026">
+    <p class="cal-title">Dezembro 2026</p>
+    <div class="cal-grid" id="cal"></div>
+  </div>
+  <div class="choices" id="choices"></div>
+  <p class="picked" id="picked">Toque em uma das datas destacadas para escolher.</p>
+
+  <label class="f" for="nome">Nome</label>
+  <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo" required>
+
+  <label class="f" for="empresa">Empresa / função <span>(opcional)</span></label>
+  <input type="text" id="empresa" name="empresa" autocomplete="organization" placeholder="Arquiteto / Engenheiro">
+
+  <label class="f" for="obs">Observação <span>(opcional)</span></label>
+  <textarea id="obs" name="obs" placeholder="Prioridades da visita ou comentários"></textarea>
+
+  <button type="button" class="wa" id="btnReserva" disabled>Solicitar reserva pelo WhatsApp</button>
+
   <p class="wish">Feliz Natal e um próspero Ano Novo.</p>
 
   <div class="sign">
     <p class="co">Luxury Automation</p>
     <p class="tag">Automação de Alto Padrão</p>
     <a class="mail" id="mail" href="mailto:contato@luxuryautomation.com.br">contato@luxuryautomation.com.br</a>
-    <a class="wa" id="wa" href="#">Falar no WhatsApp</a>
   </div>
 </div>
 
 <script>
 /* =====================================================================
-   CONFIGURAÇÃO — datas, WhatsApp e e-mail deste comunicado.
+   CONFIGURAÇÃO — datas disponíveis, retorno, WhatsApp e e-mail.
    ===================================================================== */
 const CONFIG = {
-  dataDezembro: "quarta-feira, 9 de dezembro de 2026",
+  datasDisponiveis: ["2026-12-02", "2026-12-09"],
   dataRetorno: "segunda-feira, 4 de janeiro de 2027",
   whatsapp: "5511994343506",
   email: "contato@luxuryautomation.com.br",
+  obra: "Piracicaba 541",
 };
 /* ===================================================================== */
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const dataDez = (CONFIG.dataDezembro || "").trim();
-const dataRet = (CONFIG.dataRetorno || "").trim();
-const pDez = document.getElementById("pDezembro");
-const tlDez = document.getElementById("tlDezembro");
-const pRet = document.getElementById("pRetorno");
-const tlRet = document.getElementById("tlRetorno");
+const $ = s => document.querySelector(s);
 
-if (dataDez) {
-  pDez.innerHTML = "Por causa do calendário de obras e da pausa das nossas atividades para as férias coletivas, teremos apenas mais uma data disponível no nosso calendário em dezembro: <span class=\"date\">" + esc(dataDez) + "</span>. Assim podemos organizar juntos o que for prioridade para essa visita.";
-  tlDez.textContent = dataDez;
-} else {
-  pDez.textContent = "Por causa do calendário de obras e da pausa das nossas atividades para as férias coletivas, teremos apenas mais uma data disponível no nosso calendário em dezembro. Assim podemos organizar juntos o que for prioridade para essa visita.";
-  tlDez.textContent = "Mais uma data disponível";
+function parseISO(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+function isoOf(dt) {
+  const y = dt.getFullYear();
+  const m = String(dt.getMonth() + 1).padStart(2, "0");
+  const d = String(dt.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+function formatLong(iso) {
+  return new Intl.DateTimeFormat("pt-BR", {
+    weekday: "long", day: "numeric", month: "long", year: "numeric"
+  }).format(parseISO(iso));
+}
+function formatShort(iso) {
+  const dt = parseISO(iso);
+  return `${dt.getDate()}/${dt.getMonth() + 1}`;
 }
 
+const disponiveis = (CONFIG.datasDisponiveis || []).slice().sort();
+const setDisp = new Set(disponiveis);
+let selecionada = "";
+
+const dataRet = (CONFIG.dataRetorno || "").trim();
+$("#tlDezembro").textContent = disponiveis.map(formatShort).join(" ou ") || "Mais uma data disponível";
+$("#tlRetorno").textContent = dataRet || "1ª semana de janeiro";
 if (dataRet) {
-  pRet.innerHTML = "Retomamos as atividades normalmente a partir de <span class=\"date\">" + esc(dataRet) + "</span>. Logo no início do ano, enviaremos a programação das próximas etapas.";
-  tlRet.textContent = dataRet;
+  $("#pRetorno").innerHTML = "Retomamos as atividades normalmente a partir de <span class=\"date\">" + esc(dataRet) + "</span>. Logo no início do ano, enviaremos a programação das próximas etapas.";
 } else {
-  pRet.textContent = "Retomamos as atividades normalmente a partir da primeira semana de janeiro de 2027. Logo no início do ano, enviaremos a programação das próximas etapas.";
-  tlRet.textContent = "1ª semana de janeiro";
+  $("#pRetorno").textContent = "Retomamos as atividades normalmente a partir da primeira semana de janeiro de 2027. Logo no início do ano, enviaremos a programação das próximas etapas.";
 }
 
 const email = (CONFIG.email || "").trim() || "contato@luxuryautomation.com.br";
-const mail = document.getElementById("mail");
+const mail = $("#mail");
 mail.href = "mailto:" + email;
 mail.textContent = email;
 
-const waNum = (CONFIG.whatsapp || "").replace(/\D/g, "");
-const wa = document.getElementById("wa");
-if (waNum) {
-  const msg = "Olá! Gostaria de falar sobre o comunicado de férias da obra Piracicaba 541.";
-  wa.href = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(msg);
-  wa.style.display = "block";
+/* Calendário segunda-feira primeiro, dezembro do primeiro slot (2026). */
+const ref = parseISO(disponiveis[0] || "2026-12-01");
+const year = ref.getFullYear();
+const month = ref.getMonth();
+const first = new Date(year, month, 1);
+const startOffset = (first.getDay() + 6) % 7; /* Mon=0 */
+const start = new Date(year, month, 1 - startOffset);
+const headers = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"];
+const cal = $("#cal");
+cal.innerHTML = headers.map(h => `<div class="cal-hd">${h}</div>`).join("");
+for (let i = 0; i < 42; i++) {
+  const dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+  const iso = isoOf(dt);
+  const inMonth = dt.getMonth() === month;
+  const avail = setDisp.has(iso);
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "day" + (inMonth ? "" : " out") + (avail ? " avail" : "");
+  btn.textContent = String(dt.getDate());
+  btn.dataset.iso = iso;
+  if (avail) {
+    btn.setAttribute("aria-label", formatLong(iso));
+    btn.addEventListener("click", () => escolher(iso));
+  } else {
+    btn.disabled = true;
+    btn.setAttribute("aria-hidden", inMonth ? "false" : "true");
+  }
+  cal.appendChild(btn);
+  const lastOfMonth = new Date(year, month + 1, 0);
+  const weeksNeeded = Math.ceil((startOffset + lastOfMonth.getDate()) / 7);
+  if (i + 1 >= weeksNeeded * 7) break;
 }
+
+const weekLabel = (iso, i) => (i === 0 ? "1ª semana" : i === 1 ? "2ª semana" : `${i + 1}ª semana`);
+const choices = $("#choices");
+choices.innerHTML = disponiveis.map((iso, i) => {
+  const dt = parseISO(iso);
+  const dia = dt.toLocaleDateString("pt-BR", { weekday: "short", day: "numeric", month: "numeric" });
+  return `<button type="button" class="choice" data-iso="${iso}" aria-pressed="false">
+    <p class="wk">${weekLabel(iso, i)}</p>
+    <p class="dt">${esc(formatLong(iso).replace(/ de 20\d{2}$/, ""))}</p>
+  </button>`;
+}).join("");
+choices.addEventListener("click", e => {
+  const b = e.target.closest(".choice");
+  if (b) escolher(b.dataset.iso);
+});
+
+function escolher(iso) {
+  if (!setDisp.has(iso)) return;
+  selecionada = iso;
+  document.querySelectorAll(".day.avail").forEach(b => {
+    const on = b.dataset.iso === iso;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  document.querySelectorAll(".choice").forEach(b => {
+    const on = b.dataset.iso === iso;
+    b.classList.toggle("on", on);
+    b.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  const p = $("#picked");
+  p.textContent = "Data escolhida: " + formatLong(iso);
+  p.classList.add("on");
+  syncBotao();
+}
+
+function syncBotao() {
+  const nome = ($("#nome").value || "").trim();
+  const ok = !!(selecionada && nome && (CONFIG.whatsapp || "").replace(/\D/g, ""));
+  $("#btnReserva").disabled = !ok;
+  if (nome) $("#nome").classList.remove("err");
+}
+
+["input", "change"].forEach(ev => {
+  $("#nome").addEventListener(ev, syncBotao);
+  $("#empresa").addEventListener(ev, syncBotao);
+  $("#obs").addEventListener(ev, syncBotao);
+});
+
+function buildReserva() {
+  const nome = ($("#nome").value || "").trim();
+  const empresa = ($("#empresa").value || "").trim();
+  const obs = ($("#obs").value || "").trim();
+  const waNum = (CONFIG.whatsapp || "").replace(/\D/g, "");
+  if (!selecionada || !nome || !waNum) return null;
+  const lines = [
+    `*Solicitação de reserva de data — Obra ${CONFIG.obra}*`,
+    "",
+    "Data escolhida: " + formatLong(selecionada),
+    "Nome: " + nome,
+  ];
+  if (empresa) lines.push("Empresa / função: " + empresa);
+  if (obs) lines.push("Observação: " + obs);
+  const text = lines.join("\n");
+  const url = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(text);
+  return { url, text, selecionada, nome, empresa, obs };
+}
+
+function openWA(url) {
+  const w = window.open(url, "_blank");
+  if (!w) {
+    try { window.top.location.href = url; }
+    catch (e) { location.href = url; }
+  }
+}
+
+$("#btnReserva").addEventListener("click", () => {
+  const r = buildReserva();
+  if (!r) {
+    if (!($("#nome").value || "").trim()) $("#nome").classList.add("err");
+    return;
+  }
+  openWA(r.url);
+});
+
+window.__reserva = { buildReserva, escolher, get selecionada() { return selecionada; } };
 </script>
 </body>
 </html>
